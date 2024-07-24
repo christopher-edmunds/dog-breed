@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DogApi;
+use App\DogDb;
 
 class BreedController extends Controller
 {
     /**
      * Show all breeds.
      */
-    public function all(DogApi $dogApi)
+    public function all(DogApi $dogApi, DogDb $dogDb)
     {
         
         $breeds = $dogApi->getAll();
+        $dogDb->storeAllDogs($breeds);
+
         return response()->json($breeds);
         
     }
