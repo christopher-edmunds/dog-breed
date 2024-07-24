@@ -3,42 +3,47 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\DogApi;
 
 class BreedController extends Controller
 {
     /**
      * Show all breeds.
      */
-    public function all()
+    public function all(DogApi $dogApi)
     {
-        return 'all breeds';
+        
+        $breeds = $dogApi->getAll();
+        return response()->json($breeds);
         
     }
 
     /**
      * Show a breed.
      */
-    public function show(string $breed_id)
+    public function show(string $breedId, DogApi $dogApi)
     {
-        return 'Breed '.$breed_id;
-        
+        $breed = $dogApi->getOne($breedId);
+        return response()->json($breed);   
     }
 
     /**
      * Show a random breed.
      */
-    public function random()
+    public function random(DogApi $dogApi)
     {
-        return 'Random breed';
+        $breed = $dogApi->getRandom();
+        return response()->json($breed);
         
     }
 
     /**
      * Show an image for a breed.
      */
-    public function image(string $breed_id)
+    public function image(string $breedId, DogApi $dogApi)
     {
-        return 'I will return an image for Breed '.$breed_id;
+        $breed = $dogApi->getImage($breedId);
+        return response()->json($breed);
         
     }
 }

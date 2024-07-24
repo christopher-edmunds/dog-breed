@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Classes\DogApi;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/breed', function (DogApi $dogApi) {
+    $dogApi->getAll();
+    // ...
 });
