@@ -14,6 +14,11 @@ class Park extends Model
 
     public function users(): MorphToMany
     {
-        return $this->morphedByMany(ParkUser::class, 'breedable');
+        return $this->morphedByMany(ParkUser::class, 'parkable');
+    }
+
+    public function breeds(): MorphToMany
+    {
+        return $this->morphToMany(Breed::class, 'breedable');
     }
 }

@@ -22,4 +22,10 @@ class Breed extends Model
         return $this->morphedByMany(ParkUser::class, 'breedable');
     }
 
+    public function parks(): MorphToMany
+    {
+        return $this->morphedByMany(Park::class, 'breedable');
+    }
+
+
 }

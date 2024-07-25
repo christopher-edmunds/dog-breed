@@ -11,11 +11,22 @@ class ParkController extends Controller
      /**
      * Attach a breed.
      */
-    public function breed(Request $request)
+    public function breed($parkId, Request $request)
     {
+        $park = Park::find($parkId);
+
+        $type = $request->input('type');
+        $id = $request->input('id');
         
-        echo 'park';
-        
+        switch($type) {
+            case 'breed':
+              $object = Breed::find($id);
+              $park->breeds()->attach($object);
+              return response()->json(["Breed ".$object->name." attached"]);
+              break;
+            default:
+            return response()->json("No such object"); 
+        }
     }
 
 
