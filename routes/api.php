@@ -10,6 +10,7 @@ Route::get('/breed', [BreedController::class, 'all']);
 Route::get('/breed/random', [BreedController::class, 'random']);
 Route::get('/breed/{breedId}', [BreedController::class, 'show']);
 Route::get('/breed/{breedId}/image', [BreedController::class, 'image']);
+Route::get('/breed/{breedId}/data', [BreedController::class, 'showWithRelationships']);
 
 Route::post('/user/{userId}/associate', [UserController::class, 'associate']);
 Route::post('/park/{parkId}/breed', [ParkController::class, 'breed']);
