@@ -17,10 +17,18 @@ class Breed extends Model
      */
     protected $fillable = ['name', 'sub_breed'];
 
+    /**
+     * Many to many polymorphic relationship with users
+     **/
+
     public function users(): MorphToMany
     {
         return $this->morphedByMany(ParkUser::class, 'breedable');
     }
+
+    /**
+     * Many to many polymorphic relationship with parks
+     **/
 
     public function parks(): MorphToMany
     {

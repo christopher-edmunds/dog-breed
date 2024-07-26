@@ -12,10 +12,18 @@ class Park extends Model
 
     protected $fillable = ['name'];
 
+    /**
+     * Many to many polymorphic relationship with users
+     **/
+
     public function users(): MorphToMany
     {
         return $this->morphedByMany(ParkUser::class, 'parkable');
     }
+
+    /**
+     * Many to many polymorphic relationship with breeds
+     **/
 
     public function breeds(): MorphToMany
     {

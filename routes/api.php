@@ -6,6 +6,12 @@ use App\Http\Controllers\BreedController;
 use App\Http\Controllers\ParkController;
 use App\Http\Controllers\UserController;
 
+/*
+I have installed the api route for laravel so all api calls start with /api followed by the below
+With more time I would add rate limiting / throttling to these routes to prevent them being overused
+and to prevent any issues with the dog.ceo api
+*/
+
 Route::get('/breed', [BreedController::class, 'all']);
 Route::get('/breed/random', [BreedController::class, 'random']);
 Route::get('/breed/{breedId}', [BreedController::class, 'show']);

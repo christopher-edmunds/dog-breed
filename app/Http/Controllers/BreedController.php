@@ -7,6 +7,16 @@ use App\DogApi;
 use App\DogDb;
 use App\Models\Breed;
 
+/**
+ * The purpose of the breed controller is to return breed data to the user
+ * from the api or database. At the moment the controller has db and api 
+ * logic but with more time I would add a handler to deal with what the data
+ * source is. Then the controller just knows I want breed data and the handler
+ * determines where it comes from. This can help with caching as I could add
+ * more data sources such as File, Redi or Memcached depending on requirements
+ * 
+ */
+
 class BreedController extends Controller
 {
     /**
@@ -52,16 +62,22 @@ class BreedController extends Controller
     }
 
     /**
-     * Show a breed.
+     * Show a breed with all it's relationships.
      */
     public function showWithRelationships(string $breedId)
-    {
+    {   
         $breed = Breed::find($breedId);
         $breedArray['breed'] = $breed->name;
         
         foreach($breed->parks as $park) {
             $breedArray['parks'][$park->id] = $park->name;
             /*
+            This code is here because I had a thought that you might want the users
+            associated to the parks the breeds were linked to as well. But having read the
+            brief I've commented it out. 
+
+            Same with below for parks as users
+            
             if(count($park->users) > 0) {
                 foreach($park->users as $user) {
                     $breedArray['users'][$user->id] = $user->name;

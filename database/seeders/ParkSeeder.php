@@ -13,7 +13,7 @@ class ParkSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //I used a seeder to add park data as time was limited on the test
         Park::upsert([['name' => 'Sywell Country park'],
         ['name'=>'Brixworth Country Park'],
         ['name'=>'St Davids Park'] 

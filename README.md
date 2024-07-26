@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## TODO
+
+* Caching on the api calls. Either via the database or another source
+* Rate limiting / throttling the api calls
+* Deleting data from the api
+* Adding validation to the api calls from users and from the dog.ceo api
+* Adding handlers to remove the code from the controllers
+* Adding checking / constraints on the api calls if a user / breed doesn't exist or if a relationship already exists
+* The ability to add a park or user via api rather than just associate
+
