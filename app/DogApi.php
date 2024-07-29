@@ -11,7 +11,7 @@ that something will get them dog data from somewhere.
 
 class DogApi
 {
-
+    //Move this to a config file
     private string $baseUrl = 'https://dog.ceo/api/';
     /**
      * Create a new class instance.

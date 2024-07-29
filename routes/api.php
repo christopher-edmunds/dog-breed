@@ -10,6 +10,9 @@ use App\Http\Controllers\UserController;
 I have installed the api route for laravel so all api calls start with /api followed by the below
 With more time I would add rate limiting / throttling to these routes to prevent them being overused
 and to prevent any issues with the dog.ceo api
+
+I've used get and post methods based on the spec of the test
+
 */
 
 Route::get('/breed', [BreedController::class, 'all']);

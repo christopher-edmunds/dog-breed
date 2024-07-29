@@ -5,7 +5,7 @@ namespace App;
 use App\Models\Breed;
 
 /*
-The purpose of the DogDb class is to manage any database tasks related to the dog 
+The purpose of the DogDb class is to manage any database tasks related to the breed 
 data so that it is not in the controllers. With more time I would have added the functionality
 to replicate all the api calls in here so that the db is checked first before making api calls
 to improve performance. So a retrieve all, retrieve random, retrieve image. 
@@ -43,7 +43,7 @@ class DogDb
         //adds the dogs to the database but haven't had time to test the update functionality. 
         //To improve this functionality I would either add this to a queue or put this functionality in a console funciton
         //that runs every hour or day depending on requirements. I certainly wouldn't leave this in an api call like this
-        //in production as it would cause issues with performence returing the api data to the user as the dog.ceo api grows
+        //in production as it could cause issues with performence returing the api data to the user if the dog.ceo api grows
         Breed::upsert($dogsArray, uniqueBy: ['name'], update: ['name', 'sub_breed']);
     }
 }

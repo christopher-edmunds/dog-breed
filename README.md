@@ -65,6 +65,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Documentation
+* All routes are in the /routes/api.php file
+* All routes have the url in the test prepended with /api/
+* All routes point to a controller method
+* I've commented in a way that should make it clear what i've done and what i would do with more time
+* I seeded the parks and users database to save time. The seeds can be found in the seeders folder
+* With more time I would have added functionality to add them on the api
+* I didn't manage to build in the funtionality for deleting breeds from the api. With more time I would build the functionality either in a cron job or queue to remove any that are not in the api but in the database
+* I've tried to fulfill all other requirements of the test in some way and I've commented in the code to say how I'd improve it
+* Below are a list of ways i'd improve the system with more time
+
+
 ## TODO
 
 * Caching on the api calls. Either via the database or another source
